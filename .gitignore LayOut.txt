@@ -1,0 +1,12 @@
+to do list
+when hover: effect
+when clicked: gray & line through
+
+color game
+RGB color guessing game
+THE GREAT RBX(XXX, YYY, ZZZ) GUESSING game(UP TO 255)
+NEW COLORS/PLAY AGAIN?    ( / TRY AGAIN! / CORRECT!)          EASY    HARD
+3 or 6 blocks
+
+click faulty > bgColor & TRY AGAIN!
+click correct > bg RGB changes / all blocks get color / PLAY AGAIN? & CORRECT!
