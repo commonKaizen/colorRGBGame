@@ -1,5 +1,6 @@
 var vierkanten = document.querySelectorAll(".vierkant");
 var kleurDisplay = document.querySelector("#spelkleur");
+var boodschap = document.querySelector("#feedback");
 var aantalVierkanten = 6;
 var kleuren = [];
 var kleurWin = "";
@@ -9,7 +10,16 @@ function speelSpel() {
     for (var i = 0; i < aantalVierkanten; i++) {
         vierkanten[i].style.backgroundColor = kleuren[i];
         vierkanten[i].addEventListener("click", function () {
-            console.log(this.style.backgroundColor === kleurWin ? "Gewonnen!" : "Probeer opnieuw!");
+            if (this.style.backgroundColor === kleurWin) {
+                boodschap.textContent = "Gewonnen!";
+                for (var i = 0; i < aantalVierkanten; i++) {
+                    vierkanten[i].style.backgroundColor = kleurWin;
+                }
+            } else {
+                boodschap.textContent = "Probeer opnieuw!";
+                this.style.backgroundColor = "#232323";
+
+            }
         })
     }
     kleurWin = winSpel();
