@@ -53,7 +53,6 @@ speelSpel();
 
 
 function speelSpel() {
-    var a= (document.querySelector(".makkie"))
     niveauBepaling()
     basiswaardenterugzetten();
     bouwKleurarray(aantalVierkanten);
@@ -65,7 +64,6 @@ function speelSpel() {
 
 function niveauBepaling() {
     aantalVierkanten = document.querySelector(".actief").textContent === "Moeilijk" ? 6 : 3;
-    console.log(aantalVierkanten)
 }
 
 function basiswaardenterugzetten() {
@@ -90,6 +88,9 @@ function inkleuringBord() {
     for (var i = 0; i < vierkanten.length; i++) {
         vierkanten[i].style.backgroundColor = kleuren[i];
         vierkanten[i].addEventListener("click", winOrLose);
+        if (aantalVierkanten - 1 < i) {
+            vierkanten[i].style = "none";
+        }
     }
 }
 
@@ -101,7 +102,7 @@ function gameWin(x) {
     document.querySelector("h1").style.backgroundColor = x.style.backgroundColor;
     opnieuw.textContent = "Nieuw spel?"
     boodschap.textContent = "Gefeliciteerd!";
-    for (var i = 0; i < vierkanten.length; i++) {
+    for (var i = 0; i < kleuren.length; i++) {
         vierkanten[i].style.backgroundColor = winKleur
     }
 
@@ -117,10 +118,9 @@ function kiesWinKleur() {
     return kleuren[Math.floor(Math.random() * aantalVierkanten)];
 }
 
-function wisselMoeilijkheid(){
+function wisselMoeilijkheid() {
     document.querySelector(".actief").classList.remove("actief");
     this.classList.add("actief");
-    console.log(document.querySelector(".actief"));
     speelSpel()
 }
 speelSpel();
