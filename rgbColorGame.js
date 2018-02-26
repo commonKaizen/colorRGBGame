@@ -6,6 +6,9 @@ function speelSpel() {
     inkleuring(aantalVierkanten)
     for (var i = 0; i < aantalVierkanten; i++) {
         vierkanten[i].style.backgroundColor = kleuren[i];
+        vierkanten[i].addEventListener("click",function(){
+            console.log(this.style.backgroundColor);
+        })
     }
 }
 
