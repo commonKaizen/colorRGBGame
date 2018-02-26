@@ -54,7 +54,7 @@ function speelSpel() {
     bouwKleurarray(aantalVierkanten);
     inkleuringBord();
     winKleur = kiesWinKleur();
-    boodschap = winKleur;
+    kleurDisplay.textContent = winKleur;
 
 }
 
@@ -90,6 +90,7 @@ function winOrLose() {
 function gameWin(x) {
     document.querySelector("h1").style.backgroundColor = x.style.backgroundColor;
     opnieuw.textContent = "Nieuw spel?"
+    boodschap.textContent = "Gefeliciteerd!";
     for (var i = 0; i < vierkanten.length; i++) {
         vierkanten[i].style.backgroundColor = winKleur
     }
@@ -99,6 +100,7 @@ function gameWin(x) {
 function gamePlay(x) {
     x.style.backgroundColor = "#232323";
     opnieuw.textContent = "Nieuwe kleuren?";
+    boodschap.textContent = "Probeer opnieuw!";
 }
 
 function kiesWinKleur() {
