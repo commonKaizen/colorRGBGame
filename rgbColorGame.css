@@ -1,5 +1,6 @@
 body{
     background-color: #232323;
+    margin: 0;
 }
 
 h1 {
@@ -9,7 +10,13 @@ h1 {
 }
 
 #controle{
-    margin: 0 auto;    
+    width: 80%;
+    margin: 0 auto;   
+    text-align: center; 
+    background-color: steelblue;
+    padding: 0 10%;
+    /* overflow: hidden; */
+    line-height: 1.5rem;
 }
 
 #feedback{
@@ -33,4 +40,16 @@ h1 {
 
 .start{
     background-color: steelblue;
+}
+
+button{
+    border: none;
+    background-color: steelblue;
+    color: white;
+    height: 1.5rem;
+}
+
+.actief{
+    background-color: darkblue;
+    color: steelblue;
 }
