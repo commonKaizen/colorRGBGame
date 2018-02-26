@@ -3,20 +3,24 @@ var kleurDisplay = document.querySelector("#spelkleur");
 var boodschap = document.querySelector("#feedback");
 var aantalVierkanten = 6;
 var kleuren = [];
-var kleurWin = "";
+var winKleur = "";
+var opnieuw = document.querySelector("#reset");
+var h1 = document.querySelector("h1");
 
-function speelSpel() {
+/* function speelSpel() {
     inkleuring(aantalVierkanten)
     for (var i = 0; i < aantalVierkanten; i++) {
         vierkanten[i].style.backgroundColor = kleuren[i];
         vierkanten[i].addEventListener("click", function () {
             if (this.style.backgroundColor === kleurWin) {
                 boodschap.textContent = "Gewonnen!";
+                opnieuw.textContent = "Nieuw spel?";
                 for (var i = 0; i < aantalVierkanten; i++) {
                     vierkanten[i].style.backgroundColor = kleurWin;
                 }
             } else {
                 boodschap.textContent = "Probeer opnieuw!";
+                opnieuw.textContent = "Nieuwe kleuren?";
                 this.style.backgroundColor = "#232323";
 
             }
@@ -42,3 +46,64 @@ function winSpel() {
 }
 
 speelSpel();
+ */
+
+
+function speelSpel() {
+    basiswaardenterugzetten();
+    bouwKleurarray(aantalVierkanten);
+    inkleuringBord();
+    winKleur = kiesWinKleur();
+    boodschap = winKleur;
+
+}
+
+function basiswaardenterugzetten() {
+    kleuren = [];
+    h1.style.backgroundColor = "steelblue";
+    reset.textContent = "Nieuw spel?";
+    boodschap.textContent = "";
+}
+
+function bouwKleurarray(x) {
+    for (var i = 0; i < x; i++) {
+        var kleur = "";
+        var rood = Math.floor(Math.random() * 256);
+        var groen = Math.floor(Math.random() * 256);
+        var blauw = Math.floor(Math.random() * 256);
+        kleur = "rgb(" + rood + ", " + groen + ", " + blauw + ")";
+        kleuren.push(kleur);
+    }
+}
+
+function inkleuringBord() {
+    for (var i = 0; i < vierkanten.length; i++) {
+        vierkanten[i].style.backgroundColor = kleuren[i];
+        vierkanten[i].addEventListener("click", winOrLose);
+    }
+}
+
+function winOrLose() {
+    this.style.backgroundColor === winKleur ? gameWin(this) : gamePlay(this);
+}
+
+function gameWin(x) {
+    document.querySelector("h1").style.backgroundColor = x.style.backgroundColor;
+    opnieuw.textContent = "Nieuw spel?"
+    for (var i = 0; i < vierkanten.length; i++) {
+        vierkanten[i].style.backgroundColor = winKleur
+    }
+
+}
+
+function gamePlay(x) {
+    x.style.backgroundColor = "#232323";
+    opnieuw.textContent = "Nieuwe kleuren?";
+}
+
+function kiesWinKleur() {
+    return kleuren[Math.floor(Math.random() * aantalVierkanten)];
+}
+
+speelSpel();
+opnieuw.addEventListener("click", speelSpel);

@@ -6,13 +6,17 @@ h1 {
     color: white;
     text-align: center;
     text-transform: uppercase;
-    background-color: steelblue;
+}
+
+#controle{
+    margin: 0 auto;    
 }
 
 #feedback{
-    display: table;
-    margin: 0 auto;
     color: white;
+    display: inline-block;
+    width: 20%;
+    text-align: center;
 }
 
 #container{
@@ -25,4 +29,8 @@ h1 {
     padding-bottom: 30%;
     float: left;
     margin: 1.666%
+}
+
+.start{
+    background-color: steelblue;
 }
